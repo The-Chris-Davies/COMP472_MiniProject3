@@ -1,0 +1,18 @@
+=====
+Discussion for task 2 results
+=====
+
+Two graphs have been generated: accuracy.png, nonguesses.png
+
+accuracy
+====
+The model accuracy is much higher than I would have guessed before performing the project - the worst performing model was twitter-200, which scored just below 60% accuracy. The rest scored above 70%.
+
+The relative failure of the twitter-trained embeddings seems to be caused by the difference in syntactic content of datasets. The synonyms to be found are often relatively complex compared to casual english, and so are probably underrepresented by the twitter corpus.
+
+Discluding the twitter model, the accuracy is positively correlated with the embedding dimension. This is also expected, as the larger the number of parameters, the more information is stored in the embedding.
+
+guesses
+====
+The guesses were also better than I had expected them to be. Most of the models had no guesses, and the ones that did only had one or two.
+That said, the way we track this metric is misleading. A guess is only tracked if the model is fully unable to come up with a prediction. This happens when the question word is not in the vocabulary, or all of the options are not in the vocabulary. The case where the answer is not in the vocabulary, and thus impossible for the model to select, is not tracked, and so the relation between the model's vocabulary size and the accuracy or number of guesses is not known.
